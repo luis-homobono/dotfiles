@@ -1,0 +1,49 @@
+" Developed Luis Eloy Homobono Fuentes
+" Contact luis_homobono@ciencias.unam.mx
+" VIM Configuration
+
+" Plugins
+call plug#begin('~/.vim/plugged')
+    Plug 'joshdick/onedark.vim'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'preservim/nerdtree'
+    Plug 'christoomey/vim-tmux-navigator'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'tpope/vim-commentary'
+call plug#end()
+
+" Editor config
+set number
+set relativenumber
+set cursorline
+set mouse=a
+set clipboard=unnamed
+set laststatus=2
+set showcmd
+set noshowmode
+set showmatch
+set encoding=utf-8
+syntax enable
+set ts=4
+set autoindent
+set expandtab
+set shiftwidth=4
+
+" Scheme config
+let python_highlight_all=1
+colorscheme onedark
+
+if (empty($TMUX))
+  if (has("nvim"))
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='onedark'
+
+nnoremap <C-n> :NERDTreeToggle<CR>
